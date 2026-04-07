@@ -1,0 +1,354 @@
+/* =========================================
+   GLOBAL VARIABLES & RESET
+   Change the colors here to instantly update the whole site!
+   ========================================= */
+:root {
+    --bg-dark: #0a0a0a;         /* Deep Obsidian Black */
+    --neon-gold: #c9a227;       /* The primary glowing accent */
+    --text-light: #ffffff;      /* Main reading text */
+    --text-muted: #888888;      /* Secondary reading text */
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+/* =========================================
+   REUSABLE UTILITIES
+   ========================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.neon-accent {
+    color: var(--neon-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    /* The glowing text effect */
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.5); 
+    display: block;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--neon-gold);
+    color: #000;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: #e8c34f;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.4); /* Glows when hovered */
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    /* High-quality moody bar background image */
+    background: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80') center/cover no-repeat;
+}
+
+/* The dark filter over the image so text is readable */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.8); /* 80% dark */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   DYNAMIC MENU SECTION
+   ========================================= */
+.menu-section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+}
+
+/* --- Menu Tabs (The Buttons) --- */
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid #333;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background: rgba(201, 162, 39, 0.1);
+    color: var(--neon-gold);
+    border-color: var(--neon-gold);
+    box-shadow: 0 0 15px rgba(201, 162, 39, 0.2);
+}
+
+/* --- Menu Grids --- */
+.menu-content {
+    display: none; /* Everything is hidden by default */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Only the section with the 'active' class shows up */
+.menu-content.active {
+    display: grid; 
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 20px;
+}
+
+.item-info h3 {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+}
+
+.item-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 250px;
+}
+
+.item-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--neon-gold);
+}
+
+/* Fade animation when switching tabs */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   FOOTER SECTION
+   ========================================= */
+.footer {
+    background: #050505;
+    border-top: 1px solid #222;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h2 {
+    font-family: var(--font-heading);
+    color: var(--neon-gold);
+    margin-bottom: 15px;
+}
+
+.footer-contact h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-bottom strong {
+    color: var(--neon-gold);
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+
+/* =========================================
+   VIP RESERVATION STYLES
+   ========================================= */
+.reservation-section {
+    padding: 100px 0;
+    background: #050505;
+    border-top: 1px solid #1a1a1a;
+}
+
+.reservation-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.reservation-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.reservation-text p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 400px;
+}
+
+/* The dark glass form box */
+.reservation-form-box {
+    background: #0a0a0a;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #222;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row input, .form-row select, .booking-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #333;
+    color: var(--neon-gold);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+/* Make the calendar icon white on dark backgrounds */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); 
+    cursor: pointer;
+}
+
+.booking-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* The Neon Gold Focus Effect */
+.form-row input:focus, .form-row select:focus, .booking-form textarea:focus {
+    border-color: var(--neon-gold);
+    box-shadow: 0 0 10px rgba(201, 162, 39, 0.2);
+}
+
+.form-message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness for the Form */
+@media (max-width: 768px) {
+    .reservation-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .reservation-text p {
+        margin: 0 auto;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+}

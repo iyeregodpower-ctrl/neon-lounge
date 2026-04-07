@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Lounge | Exclusive Nightlife & Dining</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="neon-accent">Welcome to the VIP Experience</span>
+            <h1>Neon Lounge Lagos</h1>
+            <p>Premium cocktails, exquisite grills, and the best nightlife atmosphere in the city.</p>
+            <a href="#menu" class="btn-primary">View The Menu</a>
+        </div>
+    </header>
+
+    <section class="menu-section" id="menu">
+        <div class="container">
+            
+            <div class="section-title">
+                <span class="neon-accent">Taste the Night</span>
+                <h2>Exclusive Menu</h2>
+            </div>
+
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-target="cocktails">Cocktails</button>
+                <button class="tab-btn" data-target="grill">The Grill</button>
+                <button class="tab-btn" data-target="shisha">Premium Shisha</button>
+            </div>
+
+            <div class="menu-content active" id="cocktails">
+                
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Neon Sunrise</h3>
+                        <p>Tequila, blue orange liqueur, fresh lime, and a splash of fire.</p>
+                    </div>
+                    <div class="item-price">₦8,500</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Midnight Bourbon</h3>
+                        <p>Aged whiskey, smoked maple syrup, angostura bitters.</p>
+                    </div>
+                    <div class="item-price">₦12,000</div>
+                </div>
+
+            </div>
+
+            <div class="menu-content" id="grill">
+                
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Spicy Suya Platter</h3>
+                        <p>Prime beef cuts, signature Yaji spice, served with fresh onions and tomatoes.</p>
+                    </div>
+                    <div class="item-price">₦10,000</div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Grilled Croaker Fish</h3>
+                        <p>Whole croaker marinated in garlic and ginger, paired with crispy plantains.</p>
+                    </div>
+                    <div class="item-price">₦18,000</div>
+                </div>
+
+            </div>
+
+            <div class="menu-content" id="shisha">
+                
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>Dubai Apple Mix</h3>
+                        <p>Double apple base infused with ice mint. Smooth and thick clouds.</p>
+                    </div>
+                    <div class="item-price">₦15,000</div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="reservation-section" id="book">
+        <div class="container reservation-container">
+            
+            <div class="reservation-text">
+                <span class="neon-accent">Secure Your Spot</span>
+                <h2>Book a VIP Table</h2>
+                <p>Experience the ultimate nightlife. Reserve your section for birthdays, corporate events, or an exclusive night out.</p>
+            </div>
+
+            <div class="reservation-form-box">
+                <form id="bookingForm" class="booking-form">
+                    
+                    <div class="form-row">
+                        <input type="text" id="resName" placeholder="Full Name" required>
+                        <input type="email" id="resEmail" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <input type="date" id="resDate" required>
+                        <select id="resGuests" required>
+                            <option value="" disabled selected>Number of Guests</option>
+                            <option value="1-2">1 - 2 People</option>
+                            <option value="3-5">3 - 5 People</option>
+                            <option value="6-10">6 - 10 People (VIP Section)</option>
+                            <option value="10+">10+ People (Full Section)</option>
+                        </select>
+                    </div>
+
+                    <textarea id="resMessage" placeholder="Special Requests (e.g., Bottle service, Birthday setup)"></textarea>
+
+                    <button type="submit" class="btn-primary" style="width: 100%;">Confirm Reservation</button>
+                    
+                    <p id="bookingMessage" class="form-message"></p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Neon Lounge</h2>
+                <p>Elevating the Lagos nightlife experience, one night at a time.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Reservations</h3>
+                <p>Email: bookings@neonlounge.com</p>
+                <p>Phone: +234 (0) 800 000 0000</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Neon Lounge. Engineered by <strong>Geypey Web Studio</strong>.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("jHOZi2x_3bcXNcb-U"); // Your existing EmailJS key
+    })();
+</script>
+    <script src="js/script.js"></script>
+</body>
+</html>
